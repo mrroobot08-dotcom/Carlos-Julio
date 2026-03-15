@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;900&family=Barlow+Mono:wght@400;600&display=swap');
+
+:root {
+  --bg: #0d0d0d;
+  --card: #171717;
+  --border: #272727;
+  --text: #f5f5f5;
+  --muted: #737373;
+  --accent: #facc15;
+  --green: #4ade80;
+  --red: #f87171;
+  --orange: #fb923c;
+  --radius: 16px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  padding: 32px 16px;
+}
+
+/* FONDO PATRÓN */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, #222 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.contenedor {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.encabezado {
+  margin-bottom: 40px;
+  animation: fadeDown 0.5s ease;
+}
+.encabezado h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.accent { color: var(--accent); }
+.encabezado p { color: var(--muted); font-size: 15px; }
+
+@keyframes fadeDown {
+  from { opacity:0; transform: translateY(-16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* GRID */
+.lista-vehiculos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* TARJETA */
+.tarjeta {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease both;
+  transition: border-color 0.3s;
+}
+.tarjeta:hover { border-color: #3f3f3f; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* Barra color estado */
+.tarjeta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--estado-color, var(--border));
+  transition: background 0.4s;
+}
+
+/* CABECERA TARJETA */
+.tarjeta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.vehiculo-info {}
+.vehiculo-emoji { font-size: 28px; display: block; margin-bottom: 6px; }
+.vehiculo-nombre {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.vehiculo-tipo { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ESTADO BADGE */
+.estado-badge {
+  font-size: 11px;
+  font-family: 'Barlow Mono', monospace;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.estado-detenido { color: var(--muted); border-color: #3f3f3f; background: #1c1c1c; }
+.estado-lento    { color: var(--green); border-color: #166534; background: rgba(74,222,128,0.08); }
+.estado-normal   { color: var(--accent); border-color: #713f12; background: rgba(250,204,21,0.08); }
+.estado-rapido   { color: var(--orange); border-color: #7c2d12; background: rgba(251,146,60,0.08); }
+.estado-limite   { color: var(--red); border-color: #7f1d1d; background: rgba(248,113,113,0.08); }
+
+/* VELOCÍMETRO */
+.velocimetro-wrap {
+  margin-bottom: 20px;
+}
+.velocimetro-num {
+  font-size: 52px;
+  font-weight: 900;
+  font-family: 'Barlow Mono', monospace;
+  line-height: 1;
+  color: var(--text);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 10px;
+  transition: color 0.4s;
+}
+.velocimetro-unit { font-size: 16px; font-weight: 400; color: var(--muted); }
+
+/* BARRA DE PROGRESO */
+.barra-wrap {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.barra-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s;
+  background: var(--estado-color, var(--muted));
+}
+.barra-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--muted);
+  font-family: 'Barlow Mono', monospace;
+}
+
+/* BOTONES */
+.botones {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 18px;
+}
+.btn {
+  padding: 12px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.btn-acelerar { border-color: #166534; color: var(--green); }
+.btn-acelerar:hover { background: rgba(74,222,128,0.12); transform: translateY(-1px); }
+.btn-frenar   { border-color: #7f1d1d; color: var(--red); }
+.btn-frenar:hover   { background: rgba(248,113,113,0.12); transform: translateY(-1px); }
+.btn-detener  { border-color: #3f3f3f; color: var(--muted); }
+.btn-detener:hover  { background: rgba(115,115,115,0.1); transform: translateY(-1px); }
+
+.btn:active { transform: translateY(0) scale(0.98); }

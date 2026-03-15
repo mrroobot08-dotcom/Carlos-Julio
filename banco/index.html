@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Virtual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <div class="contenedor">
+    <div class="encabezado">
+      <div class="logo-wrap">
+        <span class="logo-icon">◈</span>
+        <div>
+          <h1>BancoVirtual</h1>
+          <p class="tagline">Sistema de cuentas seguro</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="selector-cliente">
+      <label>Cuenta activa</label>
+      <div class="select-wrap">
+        <select id="cliente">
+          <option value="0">👤 Ana García</option>
+          <option value="1">👤 Luis Martínez</option>
+        </select>
+        <span class="select-arrow">▾</span>
+      </div>
+    </div>
+
+    <div class="saldo-card">
+      <div class="saldo-top">
+        <span class="saldo-label">Saldo disponible</span>
+        <span class="saldo-badge">● Activo</span>
+      </div>
+      <div class="saldo-monto" id="saldo">$1,000</div>
+      <div class="saldo-titular" id="nombreCliente">Ana García</div>
+      <div class="saldo-decoracion">◈</div>
+    </div>
+
+    <div class="input-grupo">
+      <label for="monto">Monto de la operación</label>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="monto" placeholder="0.00" min="1">
+      </div>
+    </div>
+
+    <div class="acciones">
+      <button id="btnIngresar" class="btn btn-ingresar">
+        <span class="btn-icon">↑</span>
+        <span>Ingresar</span>
+      </button>
+      <button id="btnRetirar" class="btn btn-retirar">
+        <span class="btn-icon">↓</span>
+        <span>Retirar</span>
+      </button>
+      <button id="btnConsultar" class="btn btn-consultar">
+        <span class="btn-icon">◎</span>
+        <span>Consultar</span>
+      </button>
+    </div>
+
+    <div id="mensaje" class="mensaje">
+      Bienvenido al sistema bancario.
+    </div>
+
+    <div class="historial-box">
+      <div class="historial-header">
+        <h3>Movimientos recientes</h3>
+        <button id="btnLimpiar" class="btn-limpiar">Limpiar</button>
+      </div>
+      <ul id="historial">
+        <li class="vacio-hist">No hay movimientos aún.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario de Tienda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="contenedor">
+    <div class="top-bar">
+      <div>
+        <h1>Inventario</h1>
+        <p class="sub">TechStore — Control de stock en tiempo real</p>
+      </div>
+      <div class="stats-top">
+        <div class="stat">
+          <div class="stat-num" id="totalProductos">0</div>
+          <div class="stat-label">Productos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" id="totalItems">0</div>
+          <div class="stat-label">Unidades</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agregar producto -->
+    <div class="form-agregar">
+      <h3>Agregar producto</h3>
+      <div class="form-row">
+        <input type="text" id="inNombre" placeholder="Nombre del producto">
+        <input type="number" id="inPrecio" placeholder="Precio $" min="1">
+        <input type="number" id="inCantidad" placeholder="Cantidad" min="1">
+        <button id="btnAgregar">+ Agregar</button>
+      </div>
+      <div id="msgForm" class="msg-form"></div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="tabla-wrap">
+      <div class="tabla-header">
+        <h3>Productos en inventario</h3>
+        <div class="buscar-wrap">
+          <input type="text" id="buscar" placeholder="🔍 Buscar...">
+        </div>
+      </div>
+      <div class="tabla-scroll">
+        <table id="tablaInventario">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Valor total</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyInventario"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="resumen-grid">
+      <div class="resumen-card azul">
+        <div class="res-label">Valor total del inventario</div>
+        <div class="res-val" id="valorTotal">$0</div>
+      </div>
+      <div class="resumen-card verde">
+        <div class="res-label">Producto más costoso</div>
+        <div class="res-val" id="masCostoso">—</div>
+      </div>
+      <div class="resumen-card naranja">
+        <div class="res-label">Producto más escaso</div>
+        <div class="res-val" id="masEscaso">—</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

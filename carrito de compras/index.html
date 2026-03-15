@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-icon">◉</span>
+        <span class="brand-name">TechStore</span>
+      </div>
+      <div class="carrito-badge">
+        <span>Carrito</span>
+        <span class="badge-count" id="badgeCount">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="seccion-productos">
+      <div class="seccion-titulo">
+        <h2>Productos disponibles</h2>
+        <p>Selecciona los artículos que deseas comprar</p>
+      </div>
+      <div id="listaProductos" class="grid-productos"></div>
+    </section>
+
+    <aside class="panel-carrito">
+      <div class="panel-header">
+        <h2>Tu carrito</h2>
+        <button id="btnVaciar" class="btn-vaciar">Vaciar</button>
+      </div>
+      <div id="listaCarrito" class="lista-carrito"></div>
+
+      <div class="resumen">
+        <div class="resumen-fila">
+          <span>Subtotal (<span id="contItems">0</span> items)</span>
+          <span id="subtotal">$0</span>
+        </div>
+        <div class="resumen-fila descuento" id="filaDescuento" style="display:none">
+          <span>Descuento 10%</span>
+          <span id="descuento" class="descuento-val">-$0</span>
+        </div>
+        <div class="resumen-total">
+          <span>Total</span>
+          <span id="total" class="total-val">$0</span>
+        </div>
+        <button id="btnComprar" class="btn-comprar">Finalizar compra →</button>
+      </div>
+    </aside>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

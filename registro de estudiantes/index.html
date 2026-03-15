@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Estudiantes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="contenedor">
+    <div class="header">
+      <div class="header-icon">🎓</div>
+      <div>
+        <h1>Registro de Estudiantes</h1>
+        <p>Sistema de evaluación y seguimiento académico</p>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-ico">👥</div>
+        <div class="stat-info">
+          <div class="stat-num" id="totalEstudiantes">0</div>
+          <div class="stat-label">Total</div>
+        </div>
+      </div>
+      <div class="stat-card verde">
+        <div class="stat-ico">✅</div>
+        <div class="stat-info">
+          <div class="stat-num" id="totalAprobados">0</div>
+          <div class="stat-label">Aprobados</div>
+        </div>
+      </div>
+      <div class="stat-card rojo">
+        <div class="stat-ico">❌</div>
+        <div class="stat-info">
+          <div class="stat-num" id="totalReprobados">0</div>
+          <div class="stat-label">Reprobados</div>
+        </div>
+      </div>
+      <div class="stat-card amarillo">
+        <div class="stat-ico">📊</div>
+        <div class="stat-info">
+          <div class="stat-num" id="promedioGen">—</div>
+          <div class="stat-label">Promedio</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="formulario-card">
+      <h3 class="form-titulo">Registrar nuevo estudiante</h3>
+      <div class="formulario">
+        <div class="grupo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" placeholder="Ej: María Fernández">
+        </div>
+        <div class="grupo">
+          <label for="edad">Edad</label>
+          <input type="number" id="edad" placeholder="18" min="15" max="80">
+        </div>
+        <div class="grupo">
+          <label for="programa">Programa</label>
+          <input type="text" id="programa" placeholder="Ej: Ingeniería de Sistemas">
+        </div>
+        <div class="grupo">
+          <label for="nota">
+            Nota final
+            <span class="nota-hint">(0.0 – 5.0)</span>
+          </label>
+          <div class="nota-wrap">
+            <input type="number" id="nota" step="0.1" min="0" max="5" placeholder="3.5">
+            <div class="nota-preview" id="notaPreview">—</div>
+          </div>
+        </div>
+      </div>
+      <button id="btnRegistrar">Registrar estudiante</button>
+      <div id="mensaje" class="mensaje">Completa los campos para registrar un estudiante.</div>
+    </div>
+
+    <!-- Lista -->
+    <div class="lista-seccion">
+      <div class="lista-header">
+        <h3>Lista de estudiantes</h3>
+        <div class="filtros">
+          <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+          <button class="filtro-btn" data-filtro="aprobados">Aprobados</button>
+          <button class="filtro-btn" data-filtro="reprobados">Reprobados</button>
+        </div>
+      </div>
+      <div id="listaEstudiantes" class="lista-estudiantes"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

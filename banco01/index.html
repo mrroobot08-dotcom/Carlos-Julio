@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NuBank Virtual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- TOP NAV -->
+    <nav class="topnav">
+      <div class="topnav-left">
+        <div class="avatar" id="avatarCircle">A</div>
+        <div>
+          <div class="nav-greeting">Bienvenido 👋</div>
+          <div class="nav-name" id="navName">Ana García</div>
+        </div>
+      </div>
+      <div class="topnav-right">
+        <button class="icon-btn" id="btnOjo" title="Mostrar/ocultar saldo">
+          <svg id="icoOjo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+        <button class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- SALDO CARD -->
+    <div class="saldo-section">
+      <div class="saldo-card">
+        <div class="card-glow"></div>
+        <div class="card-noise"></div>
+        <div class="card-content">
+          <div class="card-top">
+            <span class="card-label">Cuenta Nu</span>
+            <div class="card-logo">NU</div>
+          </div>
+          <div class="saldo-wrap">
+            <p class="saldo-titulo">Saldo disponible</p>
+            <div class="saldo-monto" id="saldo">
+              <span class="moneda">$</span><span id="saldoNum">1.000</span>
+            </div>
+            <div class="saldo-oculto" id="saldoOculto" style="display:none">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="card-titular" id="cardTitular">Ana García</span>
+            <div class="card-chip">
+              <div class="chip-inner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- selector cuenta -->
+      <div class="cuenta-row">
+        <span class="cuenta-label-txt">Cuenta activa</span>
+        <div class="select-wrap">
+          <select id="cliente" class="cuenta-select">
+            <option value="0">Ana García</option>
+            <option value="1">Luis Martínez</option>
+          </select>
+          <svg viewBox="0 0 10 6" fill="currentColor" class="chev">
+            <path d="M0 0l5 6 5-6z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCIONES -->
+    <section class="acciones-section">
+      <div class="acciones-row">
+        <div class="accion">
+          <button class="accion-btn deposito" id="btnIngresar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          </button>
+          <span>Depositar</span>
+        </div>
+        <div class="accion">
+          <button class="accion-btn retiro" id="btnRetirar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </button>
+          <span>Retirar</span>
+        </div>
+        <div class="accion">
+          <button class="accion-btn transferir" id="btnTransferir">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </button>
+          <span>Transferir</span>
+        </div>
+        <div class="accion">
+          <button class="accion-btn consultar" id="btnConsultar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <span>Consultar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVIMIENTOS -->
+    <section class="movimientos-section">
+      <div class="mov-header">
+        <h2>Últimos movimientos</h2>
+        <button class="btn-limpiar" id="btnLimpiar">Limpiar</button>
+      </div>
+      <div id="listaMovimientos" class="lista-movimientos">
+        <div class="mov-vacio">
+          <span class="vacio-icon">💜</span>
+          <p>Aún no tienes movimientos</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- MODAL TECLADO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-sheet" id="modalSheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-header">
+        <div class="sheet-ico" id="sheetIco">💰</div>
+        <h3 id="modalTitle">Depositar</h3>
+        <p id="modalSub">¿Cuánto deseas depositar?</p>
+      </div>
+
+      <div class="monto-pantalla" id="montoPantalla">$<span id="montoDigitos">0</span></div>
+
+      <div class="montos-rapidos">
+        <button class="mr-btn" data-m="10000">$10K</button>
+        <button class="mr-btn" data-m="50000">$50K</button>
+        <button class="mr-btn" data-m="100000">$100K</button>
+        <button class="mr-btn" data-m="500000">$500K</button>
+      </div>
+
+      <div class="teclado-num">
+        <button class="tk" data-v="1">1</button>
+        <button class="tk" data-v="2">2</button>
+        <button class="tk" data-v="3">3</button>
+        <button class="tk" data-v="4">4</button>
+        <button class="tk" data-v="5">5</button>
+        <button class="tk" data-v="6">6</button>
+        <button class="tk" data-v="7">7</button>
+        <button class="tk" data-v="8">8</button>
+        <button class="tk" data-v="9">9</button>
+        <button class="tk tk-vacio"></button>
+        <button class="tk" data-v="0">0</button>
+        <button class="tk tk-del" data-v="del">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
+        </button>
+      </div>
+
+      <button class="btn-confirmar" id="btnConfirmar">Confirmar</button>
+      <button class="btn-cancelar" id="btnCancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- TOAST FEEDBACK -->
+  <div class="toast-feedback" id="toastFeedback">
+    <div class="tf-icon" id="tfIcon">✓</div>
+    <div class="tf-texto">
+      <div class="tf-titulo" id="tfTitulo">Operación exitosa</div>
+      <div class="tf-sub"    id="tfSub">+$0</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

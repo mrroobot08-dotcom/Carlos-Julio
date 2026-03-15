@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Biblioteca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">📚</div>
+        <div>
+          <h1>Biblioteca</h1>
+          <p>Sistema de préstamos y devoluciones</p>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="hstat">
+          <span id="stTotal">0</span>
+          <small>Total</small>
+        </div>
+        <div class="hstat disponible">
+          <span id="stDisponibles">0</span>
+          <small>Disponibles</small>
+        </div>
+        <div class="hstat prestado">
+          <span id="stPrestados">0</span>
+          <small>Prestados</small>
+        </div>
+      </div>
+    </header>
+
+    <!-- Agregar libro -->
+    <div class="add-card">
+      <h3>Agregar libro</h3>
+      <div class="add-row">
+        <input type="text" id="inTitulo" placeholder="Título del libro">
+        <input type="text" id="inAutor" placeholder="Autor">
+        <input type="text" id="inGenero" placeholder="Género (opcional)">
+        <button id="btnAgregar">+ Agregar</button>
+      </div>
+      <div id="msgAdd" class="msg-add"></div>
+    </div>
+
+    <!-- Filtros y búsqueda -->
+    <div class="controles">
+      <div class="filtros">
+        <button class="filtro activo" data-f="todos">Todos</button>
+        <button class="filtro" data-f="disponibles">Disponibles</button>
+        <button class="filtro" data-f="prestados">Prestados</button>
+      </div>
+      <input type="text" id="buscar" placeholder="🔍 Buscar libro o autor...">
+    </div>
+
+    <!-- Lista -->
+    <div id="listaLibros" class="lista-libros"></div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
