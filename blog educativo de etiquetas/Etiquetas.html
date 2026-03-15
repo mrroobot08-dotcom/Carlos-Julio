@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de Etiquetas HTML5</title>
+
+  <style>
+    /* ── Estilos generales del cuerpo ── */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #222222;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Encabezado principal ── */
+    header {
+      background-color: #1a73e8;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* ── Menú de navegación ── */
+    nav {
+      background-color: #155bb5;
+      padding: 12px 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Contenido principal ── */
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* ── Cada sección de categoría ── */
+    section {
+      background-color: white;
+      border: 1px solid #dddddd;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    section h2 {
+      color: #1a73e8;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #1a73e8;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    section p.descripcion-seccion {
+      color: #555555;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    /* ── Tarjeta de cada etiqueta ── */
+    .tarjeta {
+      background-color: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-left: 4px solid #1a73e8;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .tarjeta h3 {
+      font-size: 1.05rem;
+      color: #1a73e8;
+      margin-bottom: 10px;
+      font-family: monospace;
+    }
+
+    /* ── Etiquetas de cada bloque de info ── */
+    .bloque-label {
+      font-size: 0.78rem;
+      font-weight: bold;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    .tarjeta p {
+      font-size: 0.9rem;
+      color: #333333;
+      line-height: 1.6;
+      margin: 0 0 6px 0;
+    }
+
+    /* ── Bloque de código ── */
+    pre {
+      background-color: #f0f4ff;
+      border: 1px solid #c5d5f5;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #1a1a2e;
+      overflow-x: auto;
+      margin: 6px 0 0 0;
+    }
+
+    /* ── Lista de buenas prácticas ── */
+    ul.buenas-practicas {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    ul.buenas-practicas li {
+      font-size: 0.88rem;
+      color: #333333;
+      line-height: 1.7;
+    }
+
+    /* ── Bloque de demostración visual ── */
+    .demo {
+      background-color: #eef4ff;
+      border: 1px solid #b3caf5;
+      border-radius: 6px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .demo p.demo-titulo {
+      font-size: 0.78rem;
+      font-weight: bold;
+      color: #1a73e8;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* ── Estilos del demo de listas ── */
+    .demo ul,
+    .demo ol {
+      padding-left: 20px;
+      margin: 0 0 10px 0;
+    }
+
+    .demo li {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #333333;
+    }
+
+    .demo dl {
+      margin: 0;
+    }
+
+    .demo dt {
+      font-weight: bold;
+      color: #1a73e8;
+      margin-top: 8px;
+    }
+
+    .demo dd {
+      margin-left: 16px;
+      font-size: 0.9rem;
+      color: #444444;
+    }
+
+    /* ── Estilos del demo de tablas ── */
+    .demo table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .demo th {
+      background-color: #1a73e8;
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid #1565c0;
+    }
+
+    .demo td {
+      padding: 9px 14px;
+      border: 1px solid #dddddd;
+      color: #333333;
+    }
+
+    .demo tr:nth-child(even) td {
+      background-color: #f0f4ff;
+    }
+
+    .demo tfoot td {
+      background-color: #e8f0fe;
+      font-weight: bold;
+      border-top: 2px solid #1a73e8;
+    }
+
+    /* ── Estilos del demo de formulario ── */
+    .demo form label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: bold;
+      color: #333333;
+      margin-bottom: 4px;
+      margin-top: 12px;
+    }
+
+    .demo form input,
+    .demo form select,
+    .demo form textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+      background-color: white;
+    }
+
+    .demo form input:focus,
+    .demo form select:focus,
+    .demo form textarea:focus {
+      border-color: #1a73e8;
+      outline: none;
+    }
+
+    .demo form button {
+      margin-top: 14px;
+      padding: 10px 22px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+
+    .demo form button:hover {
+      background-color: #155bb5;
+    }
+
+    .demo form button[type="reset"] {
+      background-color: #888888;
+    }
+
+    #mensaje-enviado {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 14px;
+      background-color: #e6f4ea;
+      border: 1px solid #81c784;
+      border-radius: 5px;
+      color: #2e7d32;
+      font-size: 0.88rem;
+    }
+
+    /* ── Estilos del demo de estructura ── */
+    .demo-estructura {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+
+    .caja-html     { background: #e8f0fe; border: 2px dashed #1a73e8; border-radius: 6px; padding: 10px 14px; color: #1a73e8; text-align: center; }
+    .caja-header   { background: #fff3e0; border: 2px dashed #f57c00; border-radius: 6px; padding: 10px 14px; color: #e65100; text-align: center; }
+    .caja-nav      { background: #fce4ec; border: 2px dashed #e91e63; border-radius: 6px; padding: 10px 14px; color: #c2185b; text-align: center; }
+    .caja-main     { background: #e8f5e9; border: 2px dashed #388e3c; border-radius: 6px; padding: 10px 14px; color: #2e7d32; text-align: center; }
+    .caja-aside    { background: #f3e5f5; border: 2px dashed #7b1fa2; border-radius: 6px; padding: 10px 14px; color: #6a1b9a; text-align: center; }
+    .caja-footer   { background: #e3f2fd; border: 2px dashed #1565c0; border-radius: 6px; padding: 10px 14px; color: #0d47a1; text-align: center; }
+    .fila-central  { display: flex; gap: 8px; }
+    .fila-central .caja-main  { flex: 1; }
+    .fila-central .caja-aside { width: 140px; }
+
+    /* ── Pie de página ── */
+    footer {
+      background-color: #222222;
+      color: #cccccc;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.85rem;
+    }
+
+    /* ── Responsivo para móviles ── */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      nav a { display: block; margin: 6px 0; }
+      .fila-central { flex-direction: column; }
+      .fila-central .caja-aside { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════
+       ENCABEZADO
+  ════════════════════════════ -->
+  <header>
+    <h1>Guía de Etiquetas HTML5</h1>
+    <p>Definición, sintaxis, ejemplos y buenas prácticas de las principales etiquetas.</p>
+  </header>
+
+  <!-- ════════════════════════════
+       NAVEGACIÓN
+  ════════════════════════════ -->
+  <nav>
+    <a href="#estructurales">🏗 Estructurales</a>
+    <a href="#texto">✍ Texto</a>
+    <a href="#listas">📋 Listas</a>
+    <a href="#formularios">📝 Formularios</a>
+    <a href="#tablas">📊 Tablas</a>
+    <a href="#multimedia">🎬 Multimedia</a>
+  </nav>
+
+  <!-- ════════════════════════════
+       CONTENIDO PRINCIPAL
+  ════════════════════════════ -->
+  <main>
+
+
+    <!-- ══════════════════════
+         1. ESTRUCTURALES
+    ══════════════════════ -->
+    <section id="estructurales">
+      <h2>🏗 Etiquetas Estructurales</h2>
+      <p class="descripcion-seccion">
+        Estas etiquetas definen el esqueleto del documento HTML. Le dicen al
+        navegador cómo está organizada la página y qué rol cumple cada bloque.
+      </p>
+
+      <!-- html -->
+      <div class="tarjeta">
+        <h3>&lt;html&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Es la etiqueta raíz que envuelve todo el documento. Indica al navegador que el contenido es HTML. El atributo <strong>lang</strong> indica el idioma de la página.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;html lang="es"&gt;
+  &lt;!-- todo el documento va aquí --&gt;
+&lt;/html&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Debe ser la primera etiqueta del documento, después del DOCTYPE. Solo puede haber un &lt;html&gt; por página.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre incluir el atributo <strong>lang</strong> para que los lectores de pantalla pronuncien bien el texto.</li>
+          <li>No olvides el DOCTYPE antes de &lt;html&gt;: <strong>&lt;!DOCTYPE html&gt;</strong></li>
+        </ul>
+      </div>
+
+      <!-- head -->
+      <div class="tarjeta">
+        <h3>&lt;head&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Contiene información sobre la página que no se muestra visualmente: el título, el charset, enlaces a archivos CSS y descripción para buscadores.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;title&gt;Mi página&lt;/title&gt;
+&lt;/head&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Va justo después de &lt;html&gt; y antes de &lt;body&gt;. Todo lo que va aquí es para el navegador, no para el usuario.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>El primer elemento dentro de &lt;head&gt; siempre debe ser <strong>&lt;meta charset="UTF-8"&gt;</strong> para evitar problemas con tildes y caracteres especiales.</li>
+          <li>Incluir siempre un &lt;title&gt; descriptivo.</li>
+        </ul>
+      </div>
+
+      <!-- body -->
+      <div class="tarjeta">
+        <h3>&lt;body&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Contiene todo el contenido visible de la página: textos, imágenes, botones, tablas, formularios y más.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;body&gt;
+  &lt;h1&gt;Hola mundo&lt;/h1&gt;
+  &lt;p&gt;Este es el contenido visible.&lt;/p&gt;
+&lt;/body&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Solo puede existir un &lt;body&gt; por documento. Todo lo que el usuario ve en pantalla debe estar dentro del body.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Colocar los archivos JavaScript al final del &lt;body&gt; para que la página cargue más rápido.</li>
+          <li>Usar etiquetas semánticas dentro del body (header, main, footer) en lugar de solo divs.</li>
+        </ul>
+      </div>
+
+      <!-- header -->
+      <div class="tarjeta">
+        <h3>&lt;header&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Encabezado de la página. Suele contener el logo, el título principal y el menú de navegación.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;header&gt;
+  &lt;h1&gt;Nombre del sitio&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>No confundir con &lt;head&gt;. El &lt;header&gt; es parte del contenido visible de la página; el &lt;head&gt; no.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>No anidar un &lt;header&gt; dentro de otro &lt;header&gt;.</li>
+          <li>Puede aparecer más de una vez en la página (por ejemplo, dentro de un artículo).</li>
+        </ul>
+      </div>
+
+      <!-- nav -->
+      <div class="tarjeta">
+        <h3>&lt;nav&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Agrupa los enlaces de navegación principales del sitio. Ayuda a los buscadores y lectores de pantalla a identificar el menú.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;nav&gt;
+  &lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
+  &lt;a href="#contacto"&gt;Contacto&lt;/a&gt;
+&lt;/nav&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Solo para bloques de navegación importantes. No usar para cada grupo de enlaces de la página.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Usar listas &lt;ul&gt; dentro del &lt;nav&gt; cuando hay muchos enlaces.</li>
+          <li>El menú debe ser fácil de usar en móviles.</li>
+        </ul>
+      </div>
+
+      <!-- main -->
+      <div class="tarjeta">
+        <h3>&lt;main&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Contiene el contenido principal y único de la página. Los lectores de pantalla pueden saltar directamente a él.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;main&gt;
+  &lt;section&gt;
+    &lt;h2&gt;Contenido principal&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Solo debe haber un &lt;main&gt; por página. No incluir el header ni el footer dentro.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre usar &lt;main&gt; para el contenido central de la página.</li>
+          <li>Nunca repetirlo; solo uno por documento.</li>
+        </ul>
+      </div>
+
+      <!-- section -->
+      <div class="tarjeta">
+        <h3>&lt;section&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Divide el contenido en bloques temáticos. Cada sección agrupa contenido relacionado y suele tener su propio título.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;section id="productos"&gt;
+  &lt;h2&gt;Nuestros productos&lt;/h2&gt;
+  &lt;p&gt;Descripción...&lt;/p&gt;
+&lt;/section&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para dividir el contenido de una página en temas. Por ejemplo: sección de servicios, sección de contacto, sección de noticias.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Cada &lt;section&gt; debe tener un título (h2, h3...) para identificarla.</li>
+          <li>No usar &lt;section&gt; solo para aplicar estilos; para eso está &lt;div&gt;.</li>
+        </ul>
+      </div>
+
+      <!-- article -->
+      <div class="tarjeta">
+        <h3>&lt;article&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Contenido independiente que tiene sentido por sí solo: un post de blog, una noticia, un comentario o una tarjeta de producto.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;article&gt;
+  &lt;h2&gt;Título del artículo&lt;/h2&gt;
+  &lt;p&gt;Contenido del artículo...&lt;/p&gt;
+&lt;/article&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Pregunta clave: ¿este contenido tiene sentido si lo sacas de la página? Si la respuesta es sí, usa &lt;article&gt;.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Puede tener su propio &lt;header&gt; y &lt;footer&gt; internos.</li>
+          <li>Ideal para blogs, noticias y catálogos de productos.</li>
+        </ul>
+      </div>
+
+      <!-- footer -->
+      <div class="tarjeta">
+        <h3>&lt;footer&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Pie de página del documento o de una sección. Contiene información de contacto, derechos de autor y enlaces secundarios.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;footer&gt;
+  &lt;p&gt;&copy; 2025 Mi sitio web. Todos los derechos reservados.&lt;/p&gt;
+&lt;/footer&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Va al final de la página. También puede ir al final de un &lt;article&gt; o &lt;section&gt; para dar información adicional.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>No colocar contenido principal dentro del footer.</li>
+          <li>Incluir siempre información de contacto o derechos de autor.</li>
+        </ul>
+      </div>
+
+      <!-- div y span -->
+      <div class="tarjeta">
+        <h3>&lt;div&gt; y &lt;span&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p><strong>&lt;div&gt;</strong> es un contenedor de bloque sin significado semántico. <strong>&lt;span&gt;</strong> es un contenedor en línea, también sin semántica. Se usan para aplicar estilos CSS.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;!-- div: ocupa toda la línea --&gt;
+&lt;div class="caja"&gt;
+  &lt;p&gt;Contenido agrupado&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- span: va dentro del texto --&gt;
+&lt;p&gt;El precio es &lt;span class="precio"&gt;$50.000&lt;/span&gt;&lt;/p&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Usar solo cuando ninguna etiqueta semántica describe bien el contenido. Son el "último recurso" para agrupar elementos.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Preferir etiquetas semánticas (section, article, nav...) sobre &lt;div&gt;.</li>
+          <li>Siempre asignar una clase descriptiva: <strong>class="tarjeta-producto"</strong> en lugar de solo &lt;div&gt;.</li>
+        </ul>
+      </div>
+
+      <!-- Demo de estructura -->
+      <div class="demo">
+        <p class="demo-titulo">📐 Vista previa — Estructura semántica de una página HTML</p>
+        <div class="demo-estructura">
+          <div class="caja-html">&lt;html&gt;</div>
+          <div class="caja-header">&lt;header&gt; — Logo + Título + Menú</div>
+          <div class="caja-nav">&lt;nav&gt; — Enlace 1 · Enlace 2 · Enlace 3</div>
+          <div class="fila-central">
+            <div class="caja-main">&lt;main&gt;<br><br>&lt;section&gt; Contenido principal &lt;/section&gt;<br>&lt;article&gt; Artículo 1 &lt;/article&gt;</div>
+            <div class="caja-aside">&lt;aside&gt;<br><br>Barra lateral</div>
+          </div>
+          <div class="caja-footer">&lt;footer&gt; — Derechos de autor · Contacto</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════
+         2. TEXTO
+    ══════════════════════ -->
+    <section id="texto">
+      <h2>✍ Etiquetas de Texto</h2>
+      <p class="descripcion-seccion">
+        Estas etiquetas dan jerarquía, formato y significado al contenido escrito de la página.
+      </p>
+
+      <!-- h1-h6 -->
+      <div class="tarjeta">
+        <h3>&lt;h1&gt; hasta &lt;h6&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Son los encabezados jerárquicos. &lt;h1&gt; es el título más importante de la página; &lt;h6&gt; es el de menor jerarquía.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;h1&gt;Título principal de la página&lt;/h1&gt;
+&lt;h2&gt;Subtítulo de sección&lt;/h2&gt;
+&lt;h3&gt;Subtítulo de subsección&lt;/h3&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Los motores de búsqueda y los lectores de pantalla usan los encabezados para entender la estructura del contenido. No usarlos solo para hacer el texto más grande.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Solo un &lt;h1&gt; por página, que sea el título principal.</li>
+          <li>No saltar niveles: si usas h2, el siguiente debe ser h3, no h4.</li>
+          <li>Usa CSS para cambiar el tamaño visual, no los encabezados.</li>
+        </ul>
+      </div>
+
+      <!-- p -->
+      <div class="tarjeta">
+        <h3>&lt;p&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Define un párrafo de texto. Es el elemento más común para contenido escrito. El navegador añade espacio arriba y abajo automáticamente.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;p&gt;Este es un párrafo de texto en HTML.
+Es un elemento de bloque y ocupa toda la línea.&lt;/p&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para cualquier bloque de texto continuo. No usar para encabezados, ítems de listas o celdas de tablas.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>No usar &lt;br&gt;&lt;br&gt; para simular párrafos; usar &lt;p&gt; correctamente.</li>
+          <li>No anidar &lt;p&gt; dentro de otro &lt;p&gt;.</li>
+        </ul>
+      </div>
+
+      <!-- strong y em -->
+      <div class="tarjeta">
+        <h3>&lt;strong&gt; y &lt;em&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p><strong>&lt;strong&gt;</strong> resalta texto con importancia fuerte (se ve en negrita). <em>&lt;em&gt;</em> indica énfasis (se ve en cursiva). Ambas tienen significado semántico, no son solo estilo.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;p&gt;&lt;strong&gt;Advertencia:&lt;/strong&gt; no borres este archivo.&lt;/p&gt;
+
+&lt;p&gt;Debes &lt;em&gt;realmente&lt;/em&gt; leer las instrucciones.&lt;/p&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>&lt;strong&gt; cuando el texto es importante. &lt;em&gt; cuando el énfasis cambia el significado de la frase. No usarlos solo para hacer negrita o cursiva visual (para eso usa CSS).</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Preferir &lt;strong&gt; sobre &lt;b&gt; y &lt;em&gt; sobre &lt;i&gt; por su valor semántico.</li>
+          <li>No abusar: si todo está en negrita, nada destaca realmente.</li>
+        </ul>
+      </div>
+
+      <!-- a -->
+      <div class="tarjeta">
+        <h3>&lt;a&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Crea un hipervínculo (enlace). Con el atributo <strong>href</strong> enlaza a otras páginas, archivos, correos o secciones de la misma página.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;!-- Enlace a otra página --&gt;
+&lt;a href="https://google.com" target="_blank"&gt;Ir a Google&lt;/a&gt;
+
+&lt;!-- Enlace a una sección de la misma página --&gt;
+&lt;a href="#contacto"&gt;Ir a Contacto&lt;/a&gt;
+
+&lt;!-- Enlace de correo --&gt;
+&lt;a href="mailto:correo@ejemplo.com"&gt;Escríbenos&lt;/a&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para navegar entre páginas o secciones. <strong>target="_blank"</strong> abre el enlace en una pestaña nueva.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>El texto del enlace debe describir el destino, no decir "haz clic aquí".</li>
+          <li>Al usar target="_blank", agregar <strong>rel="noopener"</strong> por seguridad.</li>
+        </ul>
+      </div>
+
+      <!-- br y blockquote -->
+      <div class="tarjeta">
+        <h3>&lt;br&gt; y &lt;blockquote&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p><strong>&lt;br&gt;</strong> inserta un salto de línea dentro del texto. <strong>&lt;blockquote&gt;</strong> representa una cita larga tomada de otra fuente.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;!-- Salto de línea --&gt;
+&lt;p&gt;Línea uno.&lt;br&gt;Línea dos, mismo párrafo.&lt;/p&gt;
+
+&lt;!-- Cita de otra fuente --&gt;
+&lt;blockquote cite="https://fuente.com"&gt;
+  &lt;p&gt;El texto citado de otra fuente va aquí.&lt;/p&gt;
+&lt;/blockquote&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>&lt;br&gt; para poesía o direcciones postales, no para separar párrafos. &lt;blockquote&gt; solo para citas textuales de otras fuentes.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Nunca usar &lt;br&gt;&lt;br&gt; para crear espacio; usar CSS con margin o padding.</li>
+          <li>Incluir el atributo <strong>cite</strong> en blockquote con la URL de la fuente.</li>
+        </ul>
+      </div>
+
+      <!-- code -->
+      <div class="tarjeta">
+        <h3>&lt;code&gt; y &lt;pre&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p><strong>&lt;code&gt;</strong> marca fragmentos de código en línea con fuente monoespaciada. <strong>&lt;pre&gt;</strong> preserva los espacios y saltos de línea del texto.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;!-- Código en línea --&gt;
+&lt;p&gt;Usa la propiedad &lt;code&gt;color: red&lt;/code&gt; en CSS.&lt;/p&gt;
+
+&lt;!-- Bloque de código --&gt;
+&lt;pre&gt;&lt;code&gt;
+  let nombre = "Juan";
+  console.log(nombre);
+&lt;/code&gt;&lt;/pre&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para mostrar código fuente en documentación, tutoriales o guías técnicas. La combinación &lt;pre&gt;&lt;code&gt; es el estándar para bloques de código.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Escapar los signos &lt; y &gt; dentro del código: escribir &amp;lt; y &amp;gt;.</li>
+          <li>Aplicar un color de fondo diferente con CSS para que el código sea fácil de identificar.</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════
+         3. LISTAS
+    ══════════════════════ -->
+    <section id="listas">
+      <h2>📋 Etiquetas de Listas</h2>
+      <p class="descripcion-seccion">
+        Permiten organizar información en ítems. Hay tres tipos: no ordenadas, ordenadas y de definición.
+      </p>
+
+      <!-- ul -->
+      <div class="tarjeta">
+        <h3>&lt;ul&gt; — Lista no ordenada</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Lista con viñetas (puntos). Se usa cuando el orden de los elementos no importa.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para ingredientes, características, menús de navegación o cualquier grupo de ítems donde el orden no importa.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Solo los elementos &lt;li&gt; pueden ir directamente dentro de &lt;ul&gt;.</li>
+          <li>Cambiar el tipo de viñeta con CSS: <strong>list-style-type: square</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- ol -->
+      <div class="tarjeta">
+        <h3>&lt;ol&gt; — Lista ordenada</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Lista numerada. Se usa cuando el orden de los elementos sí importa, como pasos de un proceso.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;ol&gt;
+  &lt;li&gt;Instalar VS Code&lt;/li&gt;
+  &lt;li&gt;Crear el archivo index.html&lt;/li&gt;
+  &lt;li&gt;Abrir en el navegador&lt;/li&gt;
+&lt;/ol&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para instrucciones paso a paso, recetas, rankings o procedimientos donde el orden determina el resultado.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Usar el atributo <strong>start="5"</strong> para comenzar desde un número diferente al 1.</li>
+          <li>Cambiar el estilo de numeración con CSS: <strong>list-style-type: upper-roman</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- li -->
+      <div class="tarjeta">
+        <h3>&lt;li&gt; — Elemento de lista</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Define cada ítem individual dentro de una lista. Funciona tanto dentro de &lt;ul&gt; como de &lt;ol&gt;.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;ul&gt;
+  &lt;li&gt;Primer elemento&lt;/li&gt;
+  &lt;li&gt;Segundo elemento&lt;/li&gt;
+  &lt;li&gt;Tercer elemento&lt;/li&gt;
+&lt;/ul&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Solo puede usarse como hijo directo de &lt;ul&gt; u &lt;ol&gt;. Puede contener texto, imágenes, enlaces o incluso otras listas anidadas.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Puede contener cualquier contenido HTML dentro.</li>
+          <li>Para listas anidadas, colocar la nueva &lt;ul&gt; u &lt;ol&gt; dentro del &lt;li&gt;.</li>
+        </ul>
+      </div>
+
+      <!-- dl dt dd -->
+      <div class="tarjeta">
+        <h3>&lt;dl&gt; &lt;dt&gt; &lt;dd&gt; — Lista de definiciones</h3>
+        <p class="bloque-label">Definición</p>
+        <p>&lt;dl&gt; es el contenedor de la lista. &lt;dt&gt; es el término a definir. &lt;dd&gt; es la descripción o definición de ese término.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;Lenguaje de marcado para páginas web.&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Lenguaje para dar estilos a páginas web.&lt;/dd&gt;
+&lt;/dl&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para glosarios, diccionarios técnicos, secciones de preguntas frecuentes (FAQ) o cualquier par término-descripción.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Un &lt;dt&gt; puede tener varios &lt;dd&gt; si el término tiene varias definiciones.</li>
+          <li>No usar para listas comunes; solo cuando hay relación término-descripción.</li>
+        </ul>
+      </div>
+
+      <!-- Demo de listas -->
+      <div class="demo">
+        <p class="demo-titulo">👁 Vista previa — Tipos de listas</p>
+        <p><strong>Lista no ordenada &lt;ul&gt;:</strong></p>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+        <p><strong>Lista ordenada &lt;ol&gt;:</strong></p>
+        <ol>
+          <li>Instalar VS Code</li>
+          <li>Crear index.html</li>
+          <li>Abrir en Chrome</li>
+        </ol>
+        <p><strong>Lista de definiciones &lt;dl&gt;:</strong></p>
+        <dl>
+          <dt>HTML</dt>
+          <dd>Lenguaje de marcado para páginas web.</dd>
+          <dt>CSS</dt>
+          <dd>Hojas de estilo en cascada.</dd>
+        </dl>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════
+         4. FORMULARIOS
+    ══════════════════════ -->
+    <section id="formularios">
+      <h2>📝 Etiquetas de Formularios</h2>
+      <p class="descripcion-seccion">
+        Permiten al usuario ingresar y enviar datos. Son fundamentales para registros, búsquedas y contacto.
+      </p>
+
+      <!-- form -->
+      <div class="tarjeta">
+        <h3>&lt;form&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Contenedor del formulario. Define hacia dónde se envían los datos (action) y cómo se envían (method: GET o POST).</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;form action="/procesar.php" method="POST"&gt;
+  &lt;!-- campos del formulario aquí --&gt;
+&lt;/form&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>GET se usa para búsquedas (los datos se ven en la URL). POST se usa para enviar datos sensibles como contraseñas o información personal.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre indicar el atributo <strong>method</strong>; el valor por defecto es GET.</li>
+          <li>Usar POST para formularios con contraseñas o datos personales.</li>
+        </ul>
+      </div>
+
+      <!-- input -->
+      <div class="tarjeta">
+        <h3>&lt;input&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Campo de entrada de datos. Con el atributo <strong>type</strong> se puede convertir en campo de texto, correo, contraseña, número, fecha, checkbox, radio y más.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;input type="text"  name="nombre"   placeholder="Tu nombre" required /&gt;
+&lt;input type="email" name="correo"   placeholder="Tu correo" /&gt;
+&lt;input type="password" name="clave" placeholder="Contraseña" /&gt;
+&lt;input type="number" name="edad"   min="1" max="100" /&gt;
+&lt;input type="checkbox" name="acepto" /&gt; Acepto los términos</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Es una etiqueta vacía (no tiene cierre). El atributo <strong>name</strong> es lo que identifica el campo cuando el servidor recibe los datos.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre asociar con un &lt;label&gt; usando los atributos <strong>id</strong> y <strong>for</strong>.</li>
+          <li>Usar el type correcto activa el teclado adecuado en celulares (ej: type="email" muestra el teclado con @).</li>
+          <li>Usar <strong>required</strong> para hacer un campo obligatorio.</li>
+        </ul>
+      </div>
+
+      <!-- label -->
+      <div class="tarjeta">
+        <h3>&lt;label&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Etiqueta descriptiva de un campo del formulario. Mejora la accesibilidad porque al hacer clic en el label, el cursor va directamente al campo.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;label for="correo"&gt;Correo electrónico:&lt;/label&gt;
+&lt;input type="email" id="correo" name="correo" /&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>El valor del atributo <strong>for</strong> del label debe ser igual al <strong>id</strong> del input que describe. Así quedan asociados.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Nunca omitir el &lt;label&gt;; los lectores de pantalla lo usan para describir el campo a personas con discapacidad visual.</li>
+          <li>No usar solo el atributo <strong>placeholder</strong> como reemplazo del label.</li>
+        </ul>
+      </div>
+
+      <!-- textarea -->
+      <div class="tarjeta">
+        <h3>&lt;textarea&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Área de texto de varias líneas. Ideal para mensajes, comentarios o descripciones largas que no caben en un &lt;input&gt;.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;label for="mensaje"&gt;Mensaje:&lt;/label&gt;
+&lt;textarea id="mensaje" name="mensaje"
+          rows="4" placeholder="Escribe tu mensaje..."&gt;
+&lt;/textarea&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>A diferencia de &lt;input&gt;, sí tiene etiqueta de cierre. El número de líneas visibles se controla con el atributo <strong>rows</strong>.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Usar CSS <strong>resize: vertical</strong> para que solo se pueda redimensionar hacia abajo.</li>
+          <li>Usar <strong>maxlength</strong> para limitar el número de caracteres permitidos.</li>
+        </ul>
+      </div>
+
+      <!-- select option -->
+      <div class="tarjeta">
+        <h3>&lt;select&gt; y &lt;option&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Menú desplegable. &lt;select&gt; es el contenedor y &lt;option&gt; define cada opción que el usuario puede elegir.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;label for="nivel"&gt;Nivel:&lt;/label&gt;
+&lt;select id="nivel" name="nivel"&gt;
+  &lt;option value=""&gt;-- Selecciona --&lt;/option&gt;
+  &lt;option value="basico"&gt;Principiante&lt;/option&gt;
+  &lt;option value="intermedio"&gt;Intermedio&lt;/option&gt;
+  &lt;option value="avanzado" selected&gt;Avanzado&lt;/option&gt;
+&lt;/select&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para listas largas de opciones predefinidas. El atributo <strong>value</strong> de cada option es lo que recibe el servidor, no el texto visible.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Incluir siempre una opción vacía o de instrucción al inicio ("-- Selecciona --").</li>
+          <li>Usar el atributo <strong>selected</strong> para marcar la opción predeterminada.</li>
+        </ul>
+      </div>
+
+      <!-- button -->
+      <div class="tarjeta">
+        <h3>&lt;button&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Botón clicable. Con <strong>type="submit"</strong> envía el formulario. Con <strong>type="reset"</strong> limpia todos los campos. Con <strong>type="button"</strong> no hace nada por defecto (se usa con JavaScript).</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;button type="submit"&gt;Enviar formulario&lt;/button&gt;
+&lt;button type="reset"&gt;Limpiar campos&lt;/button&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Dentro de un &lt;form&gt;, el botón con type="submit" envía los datos automáticamente sin necesitar JavaScript.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre especificar el atributo <strong>type</strong> para evitar comportamientos inesperados.</li>
+          <li>El texto del botón debe indicar claramente qué hace: "Enviar", "Registrarse", "Buscar".</li>
+        </ul>
+      </div>
+
+      <!-- Demo formulario funcional -->
+      <div class="demo">
+        <p class="demo-titulo">📋 Formulario funcional con validación HTML5</p>
+        <form action="#formularios" method="GET" onsubmit="document.getElementById('mensaje-enviado').style.display='block'; return false;">
+          <label for="f-nombre">Nombre completo:</label>
+          <input type="text" id="f-nombre" name="nombre" placeholder="Ej: Ana García" required minlength="3" />
+
+          <label for="f-email">Correo electrónico:</label>
+          <input type="email" id="f-email" name="correo" placeholder="correo@ejemplo.com" required />
+
+          <label for="f-nivel">Nivel de conocimiento:</label>
+          <select id="f-nivel" name="nivel" required>
+            <option value="">-- Selecciona un nivel --</option>
+            <option value="basico">Principiante</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="avanzado">Avanzado</option>
+          </select>
+
+          <label for="f-mensaje">Mensaje o comentario:</label>
+          <textarea id="f-mensaje" name="mensaje" rows="3" placeholder="Escribe tu mensaje..." maxlength="300"></textarea>
+
+          <button type="submit">✓ Enviar formulario</button>
+          <button type="reset">↺ Limpiar campos</button>
+
+          <div id="mensaje-enviado">
+            ✅ ¡Formulario enviado con éxito! Los datos fueron recibidos correctamente.
+          </div>
+        </form>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════
+         5. TABLAS
+    ══════════════════════ -->
+    <section id="tablas">
+      <h2>📊 Etiquetas de Tablas</h2>
+      <p class="descripcion-seccion">
+        Las tablas organizan datos en filas y columnas. Son ideales para comparar información, mostrar horarios o resultados.
+      </p>
+
+      <!-- table -->
+      <div class="tarjeta">
+        <h3>&lt;table&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Es el contenedor principal de toda la tabla. Todo el contenido tabular (filas, columnas, encabezados) va dentro de él.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;table&gt;
+  &lt;thead&gt;...&lt;/thead&gt;
+  &lt;tbody&gt;...&lt;/tbody&gt;
+  &lt;tfoot&gt;...&lt;/tfoot&gt;
+&lt;/table&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Solo para datos tabulares: horarios, notas, comparaciones, estadísticas. <strong>Nunca</strong> para diseñar el layout de la página.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Agregar &lt;caption&gt; para describir el contenido de la tabla.</li>
+          <li>Envolver la tabla en un &lt;div&gt; con overflow-x: auto para que funcione en móviles.</li>
+        </ul>
+      </div>
+
+      <!-- thead tbody tfoot -->
+      <div class="tarjeta">
+        <h3>&lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Dividen la tabla en tres partes semánticas: &lt;thead&gt; para los encabezados de columna, &lt;tbody&gt; para los datos, &lt;tfoot&gt; para totales o resúmenes.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Nombre&lt;/th&gt;&lt;th&gt;Nota&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Ana&lt;/td&gt;&lt;td&gt;4.5&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td&gt;Promedio&lt;/td&gt;&lt;td&gt;4.5&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Permiten aplicar estilos diferentes a cada sección de la tabla y mejoran la semántica para buscadores y lectores de pantalla.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Usar siempre las tres secciones para tablas completas.</li>
+          <li>Al imprimir, el navegador puede repetir el &lt;thead&gt; en cada página automáticamente.</li>
+        </ul>
+      </div>
+
+      <!-- tr th td -->
+      <div class="tarjeta">
+        <h3>&lt;tr&gt; &lt;th&gt; &lt;td&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>&lt;tr&gt; define una fila. &lt;th&gt; es una celda de encabezado (negrita y centrada por defecto). &lt;td&gt; es una celda de datos normal.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;!-- Fila de encabezados --&gt;
+&lt;tr&gt;
+  &lt;th scope="col"&gt;Aprendiz&lt;/th&gt;
+  &lt;th scope="col"&gt;Nota&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;!-- Fila de datos --&gt;
+&lt;tr&gt;
+  &lt;td&gt;Ana García&lt;/td&gt;
+  &lt;td&gt;4.8&lt;/td&gt;
+&lt;/tr&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Con <strong>colspan</strong> una celda puede ocupar varias columnas; con <strong>rowspan</strong> puede ocupar varias filas.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre usar &lt;th&gt; para la fila del encabezado, no &lt;td&gt; con negrita manual.</li>
+          <li>Usar el atributo <strong>scope="col"</strong> o <strong>scope="row"</strong> en &lt;th&gt; para mejorar accesibilidad.</li>
+        </ul>
+      </div>
+
+      <!-- caption -->
+      <div class="tarjeta">
+        <h3>&lt;caption&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Agrega un título o descripción a la tabla. Aparece visualmente encima de la tabla y es leído por lectores de pantalla antes que el contenido.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;table&gt;
+  &lt;caption&gt;Notas finales del período — Grado 10°&lt;/caption&gt;
+  &lt;thead&gt;...&lt;/thead&gt;
+  &lt;tbody&gt;...&lt;/tbody&gt;
+&lt;/table&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Debe ir inmediatamente después de &lt;table&gt; y antes de cualquier otra etiqueta. Es el equivalente al "alt" de las imágenes pero para tablas.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre incluirlo en tablas complejas para mejorar la accesibilidad.</li>
+          <li>Ser descriptivo: "Notas del período" es mejor que solo "Tabla 1".</li>
+        </ul>
+      </div>
+
+      <!-- Demo de tabla -->
+      <div class="demo">
+        <p class="demo-titulo">📊 Tabla completa con thead, tbody y tfoot</p>
+        <table>
+          <caption style="text-align:left; font-size:0.82rem; color:#555; margin-bottom:8px;">Notas finales — Curso de HTML5</caption>
+          <thead>
+            <tr>
+              <th scope="col">Aprendiz</th>
+              <th scope="col">Módulo 1</th>
+              <th scope="col">Módulo 2</th>
+              <th scope="col">Promedio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ana García</td><td>4.8</td><td>4.5</td><td>4.65</td></tr>
+            <tr><td>Luis Martínez</td><td>3.9</td><td>4.2</td><td>4.05</td></tr>
+            <tr><td>María López</td><td>5.0</td><td>4.8</td><td>4.90</td></tr>
+            <tr><td>Carlos Ruiz</td><td>4.1</td><td>3.8</td><td>3.95</td></tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3"><strong>Promedio del grupo</strong></td>
+              <td><strong>4.39</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════
+         6. MULTIMEDIA
+    ══════════════════════ -->
+    <section id="multimedia">
+      <h2>🎬 Etiquetas de Multimedia</h2>
+      <p class="descripcion-seccion">
+        Permiten integrar imágenes, audio, video e iframes en la página sin necesidad de plugins externos.
+      </p>
+
+      <!-- img -->
+      <div class="tarjeta">
+        <h3>&lt;img&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Inserta una imagen en la página. Es una etiqueta vacía (no tiene cierre). Los atributos <strong>src</strong> (ruta de la imagen) y <strong>alt</strong> (texto alternativo) son obligatorios.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;img src="foto.jpg"
+     alt="Descripción de la imagen"
+     width="300"
+     height="200" /&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>El atributo <strong>src</strong> puede ser una ruta relativa (foto.jpg), una ruta absoluta (/imagenes/foto.jpg) o una URL completa (https://...).</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre incluir el atributo <strong>alt</strong> con una descripción; si la imagen es decorativa, usar alt="" (vacío).</li>
+          <li>Especificar <strong>width</strong> y <strong>height</strong> para evitar que la página "salte" mientras carga.</li>
+          <li>Usar imágenes en formato WebP para menor peso.</li>
+        </ul>
+      </div>
+
+      <!-- video -->
+      <div class="tarjeta">
+        <h3>&lt;video&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Reproduce un archivo de video directamente en el navegador, sin necesidad de Flash ni plugins. Soporta MP4, WebM y OGG.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;video width="640" controls&gt;
+  &lt;source src="video.mp4" type="video/mp4" /&gt;
+  &lt;source src="video.webm" type="video/webm" /&gt;
+  Tu navegador no soporta la etiqueta video.
+&lt;/video&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>El atributo <strong>controls</strong> muestra los controles de reproducción. Se pueden agregar varios &lt;source&gt; para compatibilidad con distintos navegadores.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre incluir al menos dos formatos (MP4 y WebM) para compatibilidad.</li>
+          <li>Si usas <strong>autoplay</strong>, también debes agregar <strong>muted</strong>; los navegadores modernos lo exigen.</li>
+          <li>Usar <strong>poster="imagen.jpg"</strong> para mostrar una imagen mientras el video carga.</li>
+        </ul>
+      </div>
+
+      <!-- audio -->
+      <div class="tarjeta">
+        <h3>&lt;audio&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Reproduce un archivo de audio en el navegador con controles nativos. Soporta MP3, OGG y WAV.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;audio controls&gt;
+  &lt;source src="sonido.mp3" type="audio/mpeg" /&gt;
+  &lt;source src="sonido.ogg" type="audio/ogg" /&gt;
+  Tu navegador no soporta la etiqueta audio.
+&lt;/audio&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para podcasts, música de fondo, efectos de sonido o narración de texto. El texto dentro de la etiqueta se muestra solo si el navegador no soporta &lt;audio&gt;.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Nunca usar <strong>autoplay</strong> en audio sin que el usuario lo haya solicitado.</li>
+          <li>Siempre incluir el atributo <strong>controls</strong> para que el usuario pueda pausar y ajustar el volumen.</li>
+        </ul>
+      </div>
+
+      <!-- iframe -->
+      <div class="tarjeta">
+        <h3>&lt;iframe&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>Incrusta otra página web o contenido externo dentro de la página actual. Se usa para YouTube, Google Maps, formularios externos y más.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;!-- Video de YouTube --&gt;
+&lt;iframe
+  src="https://www.youtube.com/embed/ID_DEL_VIDEO"
+  width="560"
+  height="315"
+  title="Descripción del video"
+  allowfullscreen&gt;
+&lt;/iframe&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para incrustar contenido de terceros que ya tiene su propia URL. A diferencia de &lt;video&gt;, carga un documento completo externo dentro de la página.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>Siempre incluir el atributo <strong>title</strong> descriptivo para accesibilidad.</li>
+          <li>No incrustar páginas de fuentes desconocidas; puede ser un riesgo de seguridad.</li>
+        </ul>
+      </div>
+
+      <!-- figure figcaption -->
+      <div class="tarjeta">
+        <h3>&lt;figure&gt; y &lt;figcaption&gt;</h3>
+        <p class="bloque-label">Definición</p>
+        <p>&lt;figure&gt; agrupa un elemento multimedia (imagen, video, código) con su descripción. &lt;figcaption&gt; es el texto de pie o leyenda de ese contenido.</p>
+        <p class="bloque-label">Sintaxis básica</p>
+        <pre>&lt;figure&gt;
+  &lt;img src="diagrama.png"
+       alt="Diagrama de estructura HTML" /&gt;
+  &lt;figcaption&gt;
+    Fig. 1 — Estructura básica de un documento HTML5.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</pre>
+        <p class="bloque-label">Uso adecuado</p>
+        <p>Para imágenes, diagramas o fragmentos de código que van acompañados de una descripción contextual. &lt;figcaption&gt; puede ir antes o después del contenido dentro de &lt;figure&gt;.</p>
+        <p class="bloque-label">Buenas prácticas</p>
+        <ul class="buenas-practicas">
+          <li>El &lt;figcaption&gt; da contexto adicional que el atributo alt no puede dar.</li>
+          <li>Usar siempre que una imagen necesite una nota o referencia explicativa.</li>
+        </ul>
+      </div>
+
+      <!-- Demo multimedia -->
+      <div class="demo">
+        <p class="demo-titulo">🎬 Resumen visual — Etiquetas multimedia</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Etiqueta</th>
+              <th>Para qué sirve</th>
+              <th>Formatos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>&lt;img&gt;</td><td>Mostrar imágenes estáticas</td><td>JPG, PNG, WebP, SVG</td></tr>
+            <tr><td>&lt;video&gt;</td><td>Reproducir videos</td><td>MP4, WebM, OGG</td></tr>
+            <tr><td>&lt;audio&gt;</td><td>Reproducir audio</td><td>MP3, OGG, WAV</td></tr>
+            <tr><td>&lt;iframe&gt;</td><td>Incrustar contenido externo</td><td>YouTube, Maps, etc.</td></tr>
+            <tr><td>&lt;figure&gt;</td><td>Agrupar imagen con descripción</td><td>Cualquier tipo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════
+       PIE DE PÁGINA
+  ════════════════════════════ -->
+  <footer>
+    <p>Blog educativo creado con HTML5 y CSS básico &nbsp;·&nbsp; Guía de etiquetas web</p>
+  </footer>
+
+</body>
+</html>
