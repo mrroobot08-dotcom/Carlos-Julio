@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Lab · Ejercicios JS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Overlay para cerrar sidebar -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ═══════════════════════════════════════
+       SIDEBAR — Menú hamburguesa lateral
+  ════════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Cerrar menú">✕</button>
+
+    <div class="sidebar-header">
+      <a class="sidebar-logo" href="#">
+        <div class="logo-icon">JS</div>
+        <div>
+          <div class="logo-name">DOM Lab</div>
+          <div class="logo-sub">ejercicios javascript</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="sidebar-section-label">Ejercicios</div>
+
+    <ul class="nav-list" id="navList">
+      <li><a href="#ej1"><span class="nav-num">01</span><span class="nav-icon"></span>Mensaje</a></li>
+      <li><a href="#ej2"><span class="nav-num">02</span><span class="nav-icon"></span>Suma</a></li>
+      <li><a href="#ej3"><span class="nav-num">03</span><span class="nav-icon"></span>Color de fondo</a></li>
+      <li><a href="#ej4"><span class="nav-num">04</span><span class="nav-icon"></span>Contador</a></li>
+      <li><a href="#ej5"><span class="nav-num">05</span><span class="nav-icon"></span>Lista de tareas</a></li>
+      <li><a href="#ej6"><span class="nav-num">06</span><span class="nav-icon"></span>Formulario</a></li>
+      <li><a href="#ej7"><span class="nav-num">07</span><span class="nav-icon"></span>Calculadora</a></li>
+      <li><a href="#ej8"><span class="nav-num">08</span><span class="nav-icon"></span>Temporizador</a></li>
+      <li><a href="#ej9"><span class="nav-num">09</span><span class="nav-icon"></span>Próximamente</a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <p>DOM Lab · JavaScript puro<br>sin frameworks ni dependencias.</p>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════
+       TOPBAR — Barra superior fija
+  ════════════════════════════════════════ -->
+  <header class="topbar">
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="topbar-title">DOM<span>Lab</span></div>
+    <div class="topbar-breadcrumb">
+      <div class="breadcrumb-dot"></div>
+      <span id="breadcrumbText">9 ejercicios</span>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       CONTENIDO PRINCIPAL
+  ════════════════════════════════════════ -->
+  <main class="page">
+
+    <!-- Hero banner -->
+    <div class="hero-banner">
+      <p class="hero-eyebrow">JavaScript · Manipulación del DOM</p>
+      <h1 class="hero-title">Aprende JS<br><span>jugando con el DOM</span></h1>
+
+      <div class="hero-tags">
+      
+      </div>
+    </div>
+
+    <!-- Grid de ejercicios -->
+    <div class="grid">
+
+      <!-- ── Ejercicio 1: Mostrar Mensaje ── -->
+      <div class="card card-ej1" id="ej1">
+        <div class="card-num">Ejercicio 01</div>
+        <div class="card-title">Mostrar Mensaje</div>
+        <p class="card-desc">Usa <code>textContent</code> para escribir texto en el DOM al hacer clic en un botón.</p>
+        <button class="btn btn-primary" id="btnMensaje">Mostrar mensaje</button>
+        <div class="output-box" id="resultadoMensaje"></div>
+      </div>
+
+      <!-- ── Ejercicio 2: Suma ── -->
+      <div class="card card-ej2" id="ej2">
+        <div class="card-num">Ejercicio 02</div>
+        <div class="card-title">Sumar Números</div>
+        <p class="card-desc">Lee los valores de dos <code>&lt;input&gt;</code> y muestra la suma al instante.</p>
+        <div class="sum-row">
+          <div class="field" style="margin:0">
+            <label for="numero1">Primer número</label>
+            <input type="number" id="numero1" placeholder="0" class="input">
+          </div>
+          <div class="sum-op">+</div>
+          <div class="field" style="margin:0">
+            <label for="numero2">Segundo número</label>
+            <input type="number" id="numero2" placeholder="0" class="input">
+          </div>
+        </div>
+        <button class="btn btn-primary" id="btnSumar" style="margin-top:4px">Calcular suma</button>
+        <div class="output-box" id="resultadoSuma"></div>
+      </div>
+
+      <!-- ── Ejercicio 3: Color de Fondo ── -->
+      <div class="card card-ej3" id="ej3">
+        <div class="card-num">Ejercicio 03</div>
+        <div class="card-title">Color de Fondo</div>
+        <p class="card-desc">Modifica <code>document.body.style.background</code> con cada botón de color.</p>
+        <div class="color-palette">
+          <button class="color-swatch" id="btnRojo"     style="background:#ef4444"> Rojo</button>
+          <button class="color-swatch" id="btnVerde"    style="background:#22c55e"> Verde</button>
+          <button class="color-swatch" id="btnAzul"     style="background:#3b82f6"> Azul</button>
+          <button class="color-swatch" id="btnAmarillo" style="background:#f59e0b"> Amarillo</button>
+          <button class="color-swatch" id="btnMorado"   style="background:#8b5cf6"> Morado</button>
+          <button class="color-swatch" id="btnReset"    style="background:#6b7280">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- ── Ejercicio 4: Contador ── -->
+      <div class="card card-ej4" id="ej4">
+        <div class="card-num">Ejercicio 04</div>
+        <div class="card-title">Contador de Clics</div>
+        <p class="card-desc">Acumula clics en una variable y actualiza el DOM en tiempo real con cada pulsación.</p>
+        <div class="counter-wrap">
+          <div class="counter-value" id="contadorValor">0</div>
+          <div class="counter-label">clics totales</div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="btnContador">＋ Sumar</button>
+          <button class="btn btn-ghost"   id="btnRestarContador">－ Restar</button>
+          <button class="btn btn-danger"  id="btnResetContador">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- ── Ejercicio 5: Lista de Tareas ── -->
+      <div class="card card-ej5" id="ej5">
+        <div class="card-num">Ejercicio 05</div>
+        <div class="card-title">Lista de Tareas</div>
+        <p class="card-desc">Crea y elimina nodos del DOM con <code>createElement</code>. Clic en el círculo para marcar como hecha.</p>
+        <div class="inline-form">
+          <input type="text" id="tareaInput" placeholder="Nueva tarea…" class="input">
+          <button class="btn btn-primary" id="btnAgregar">Agregar</button>
+        </div>
+        <ul class="task-list" id="listaTareas">
+          <li class="task-empty" id="tareaVacia">Agrega tu primera tarea </li>
+        </ul>
+      </div>
+
+      <!-- ── Ejercicio 6: Formulario ── -->
+      <div class="card card-ej6" id="ej6">
+        <div class="card-num">Ejercicio 06</div>
+        <div class="card-title">Validación de Formulario</div>
+        <p class="card-desc">Valida nombre, correo y edad antes de procesar el envío con <code>event.preventDefault()</code>.</p>
+        <form id="formulario" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" placeholder="ej. Ana García" class="input">
+              <span class="field-error" id="errNombre">El nombre es obligatorio.</span>
+            </div>
+            <div class="field">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" placeholder="ej. ana@correo.com" class="input">
+              <span class="field-error" id="errCorreo">Ingresa un correo válido.</span>
+            </div>
+            <div class="field">
+              <label for="edad">Edad</label>
+              <input type="number" id="edad" placeholder="ej. 25" class="input" min="1" max="120">
+              <span class="field-error" id="errEdad">Ingresa una edad válida (1–120).</span>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar formulario →</button>
+          </div>
+        </form>
+        <div class="output-box" id="mensajeForm"></div>
+      </div>
+
+      <!-- ── Ejercicio 7: Calculadora ── -->
+      <div class="card card-ej7" id="ej7">
+        <div class="card-num">Ejercicio 07</div>
+        <div class="card-title">Calculadora</div>
+        <p class="card-desc">Selecciona la operación con un <code>&lt;select&gt;</code> y evalúa el resultado con un <code>switch</code>.</p>
+        <div class="calc-grid">
+          <div class="field" style="margin:0">
+            <label for="calcNum1">Número A</label>
+            <input type="number" id="calcNum1" placeholder="0" class="input">
+          </div>
+          <div class="field" style="margin:0">
+            <label for="operacion">Op.</label>
+            <select id="operacion" class="input select" style="padding:11px 8px">
+              <option value="+">+</option>
+              <option value="-">−</option>
+              <option value="*">×</option>
+              <option value="/">÷</option>
+            </select>
+          </div>
+          <div class="field" style="margin:0">
+            <label for="calcNum2">Número B</label>
+            <input type="number" id="calcNum2" placeholder="0" class="input">
+          </div>
+        </div>
+        <button class="btn btn-primary" id="btnCalcular">Calcular</button>
+        <div class="calc-result-big">
+          <div class="result-label">Resultado</div>
+          <div class="result-value" id="resultadoCalc">—</div>
+          <div class="result-expr"  id="resultadoExpr"></div>
+        </div>
+      </div>
+
+      <!-- ── Ejercicio 8: Cronómetro ── -->
+      <div class="card card-ej8" id="ej8">
+        <div class="card-num">Ejercicio 08</div>
+        <div class="card-title">Cronómetro</div>
+        <p class="card-desc">Controla el tiempo con <code>setInterval</code> y <code>clearInterval</code>. Inicia, pausa y reinicia.</p>
+        <div class="timer-wrap">
+          <div class="timer-display" id="tiempo">00:00:00</div>
+          <div class="timer-status"  id="timerStatus">Listo</div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-success" id="btnIniciar">▶ Iniciar</button>
+          <button class="btn btn-warn"    id="btnDetener">⏸ Pausa</button>
+          <button class="btn btn-danger"  id="btnReiniciar">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- ── Ejercicio 9: Próximamente ── -->
+      <div class="card card-ej9 coming-card" id="ej9">
+        <div class="card-num">Ejercicio 09</div>
+        <div class="card-title">Próximamente</div>
+        <div class="coming-icon"></div>
+        <p class="card-desc">Este espacio está reservado para el siguiente ejercicio del curso.</p>
+        <div class="coming-badge">En desarrollo…</div>
+      </div>
+
+    </div><!-- /grid -->
+  </main>
+
+  <script src="scrip.js"></script>
+</body>
+</html>
